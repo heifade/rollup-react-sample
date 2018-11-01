@@ -1,12 +1,8 @@
-import * as React from "react";
-import * as echarts from "echarts/echarts.all";
 
 export class Chart1 extends React.PureComponent {
   componentDidMount() {
-    // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(this.div);
 
-    // 指定图表的配置项和数据
     var option = {
       title: {
         text: "ECharts 入门示例"
@@ -22,27 +18,28 @@ export class Chart1 extends React.PureComponent {
       series: [
         {
           name: "销量",
-          type: "bar",
+          type: "line",
+          smooth: true,
           data: [5, 20, 36, 10, 10, 20]
-        }, 
+        },
         {
           name: "销量1",
           type: "bar",
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: "销量2",
+          type: "pie",
+          radius: "55%",
           data: [5, 20, 36, 10, 10, 20]
         }
       ]
     };
 
-    // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
   }
 
   render() {
-    return (
-      <div
-        ref={obj => (this.div = obj)}
-        className="chart"
-      />
-    );
+    return <div ref={obj => (this.div = obj)} className="chart" />;
   }
 }
