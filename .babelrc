@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": ["chrome >= 68", "safari >= 11", "Firefox >= 61"]
+        },
+        "useBuiltIns": false,
+        "shippedProposals": true,
+        "debug": false,
+        "loose": false
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": false,
+        "regenerator": true
+      }
+    ],
+    "@babel/plugin-syntax-dynamic-import"
+  ]
+}
