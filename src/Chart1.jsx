@@ -1,4 +1,3 @@
-
 export class Chart1 extends React.PureComponent {
   componentDidMount() {
     var myChart = echarts.init(this.div);
@@ -12,6 +11,7 @@ export class Chart1 extends React.PureComponent {
         data: ["销量"]
       },
       xAxis: {
+        type: 'category',
         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
       },
       yAxis: {},
@@ -30,8 +30,16 @@ export class Chart1 extends React.PureComponent {
         {
           name: "销量2",
           type: "pie",
-          radius: "55%",
-          data: [5, 20, 36, 10, 10, 20]
+          radius: "50%",
+          roseType: 'angle',
+          data: [
+            { value: 5, name: "衬衫" },
+            { value: 20, name: "羊毛衫" },
+            { value: 36, name: "雪纺衫" },
+            { value: 10, name: "裤子" },
+            { value: 10, name: "高跟鞋" },
+            { value: 20, name: "袜子" }
+          ]
         }
       ]
     };
