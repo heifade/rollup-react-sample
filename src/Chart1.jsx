@@ -24,6 +24,11 @@ export class Chart1 extends React.PureComponent {
           name: "销量",
           type: "bar",
           data: [5, 20, 36, 10, 10, 20]
+        }, 
+        {
+          name: "销量1",
+          type: "bar",
+          data: [5, 20, 36, 10, 10, 20]
         }
       ]
     };
