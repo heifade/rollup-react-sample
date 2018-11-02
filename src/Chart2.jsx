@@ -8,18 +8,15 @@ export class Chart2 extends React.PureComponent {
       },
       tooltip: {},
       dataset: {
+        dimensions: ["product", "2015", "2016", "2017"],
         source: [
-          ["产品", "2015", "2016"],
-          ["衬衫", 20, 21],
-          ["羊毛衫", 30, 31],
-          ["雪纺衫", 40, 41],
-          ["裤子", 50, 51],
-          ["高跟鞋", 60, 61],
-          ["袜子", 70, 71]
+          ["衬衫", 20, 30, 40],
+          ["羊毛衫", 30, 40, 50],
+          ["雪纺衫", 40, 50, 60],
+          ["裤子", 50, 60, 70],
+          ["高跟鞋", 60, 70, 80],
+          ["袜子", 70, 80, 90]
         ]
-      },
-      legend: {
-        data: ["销量"]
       },
       xAxis: {
         type: "category"
@@ -27,14 +24,14 @@ export class Chart2 extends React.PureComponent {
       yAxis: {},
       series: [
         {
-          type: "line"
+          seriesLayoutBy: 'row',
+          type: "bar"
         },
         {
           type: "bar"
         },
         {
-          type: "pie",
-          roseType: "angle"
+          type: "bar"
         }
       ]
     };
