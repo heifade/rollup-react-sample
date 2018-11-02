@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "buildw": "rollup -c --watch"
+    "start": "rollup -c --watch"
   },
   "keywords": [],
   "author": "",
