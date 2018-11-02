@@ -22,9 +22,6 @@ export default [
       commonjs(),
       babel({
         exclude: "node_modules/**"
-      }),
-      replace({
-        "process.env.NODE_ENV": JSON.stringify("production")
       })
     ]
   },
@@ -83,9 +80,6 @@ export default [
       }),
       babel({
         exclude: "node_modules/**"
-      }),
-      replace({
-        "process.env.NODE_ENV": JSON.stringify("production")
       })
     ]
   }
