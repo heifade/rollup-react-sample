@@ -19,12 +19,18 @@ export class Chart2 extends React.PureComponent {
         ]
       },
       xAxis: {
-        type: "category"
+        type: "category",
+        gridIndex: 1
       },
-      yAxis: {},
+      grid: [
+        {bottom: '50%'},
+        {top: '50%'}
+      ],
+      yAxis: [{
+        gridIndex: 1
+      }],
       series: [
         {
-          seriesLayoutBy: 'row',
           type: "bar"
         },
         {
