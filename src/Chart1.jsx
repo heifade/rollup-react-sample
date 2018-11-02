@@ -1,6 +1,6 @@
 export class Chart1 extends React.PureComponent {
   componentDidMount() {
-    var myChart = echarts.init(this.div);
+    var myChart = echarts.init(this.div, "chalk");
 
     var option = {
       title: {
@@ -11,7 +11,7 @@ export class Chart1 extends React.PureComponent {
         data: ["销量"]
       },
       xAxis: {
-        type: 'category',
+        type: "category",
         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
       },
       yAxis: {},
@@ -20,25 +20,39 @@ export class Chart1 extends React.PureComponent {
           name: "销量",
           type: "line",
           smooth: true,
-          data: [5, 20, 36, 10, 10, 20]
+          data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100
+          ]
         },
         {
           name: "销量1",
           type: "bar",
-          data: [5, 20, 36, 10, 10, 20]
+          data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100
+          ]
         },
         {
           name: "销量2",
           type: "pie",
           radius: "50%",
-          roseType: 'angle',
+          roseType: "angle",
           data: [
-            { value: 5, name: "衬衫" },
-            { value: 20, name: "羊毛衫" },
-            { value: 36, name: "雪纺衫" },
-            { value: 10, name: "裤子" },
-            { value: 10, name: "高跟鞋" },
-            { value: 20, name: "袜子" }
+            { value: Math.random() * 100, name: "衬衫" },
+            { value: Math.random() * 100, name: "羊毛衫" },
+            { value: Math.random() * 100, name: "雪纺衫" },
+            { value: Math.random() * 100, name: "裤子" },
+            { value: Math.random() * 100, name: "高跟鞋" },
+            { value: Math.random() * 100, name: "袜子" }
           ]
         }
       ]

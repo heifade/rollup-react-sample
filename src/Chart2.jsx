@@ -1,48 +1,102 @@
 export class Chart2 extends React.PureComponent {
   componentDidMount() {
-    var myChart = echarts.init(this.div);
+    const myChart = echarts.init(this.div, "chalk");
 
-    var option = {
+    myChart.setOption({
       title: {
         text: "ECharts 入门示例"
       },
       tooltip: {},
-      dataset: {
-        dimensions: ["product", "2015", "2016", "2017"],
-        source: [
-          ["衬衫", 20, 30, 40],
-          ["羊毛衫", 30, 40, 50],
-          ["雪纺衫", 40, 50, 60],
-          ["裤子", 50, 60, 70],
-          ["高跟鞋", 60, 70, 80],
-          ["袜子", 70, 80, 90]
-        ]
-      },
-      xAxis: {
-        type: "category",
-        gridIndex: 1
-      },
-      grid: [
-        {bottom: '50%'},
-        {top: '50%'}
+      xAxis: [
+        { type: "category", gridIndex: 0 },
+        { type: "category", gridIndex: 1 }
       ],
-      yAxis: [{
-        gridIndex: 1
-      }],
+      grid: [
+        { bottom: "55%" }, 
+        { top: "55%" }
+      ],
+      yAxis: [{ gridIndex: 0 }, { gridIndex: 1 }],
       series: [
+        { type: "bar", xAxisIndex: 0, yAxisIndex: 0 },
+        { type: "bar", xAxisIndex: 0, yAxisIndex: 0 },
+        { type: "bar", xAxisIndex: 0, yAxisIndex: 0 },
+
         {
-          type: "bar"
+          type: "line",
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          smooth: true,
+          encode: { itemName: "product", value: "2015" }
         },
         {
-          type: "bar"
+          type: "line",
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          smooth: true,
+          encode: { itemName: "product", value: "2016" }
         },
         {
-          type: "bar"
+          type: "scatter",
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          smooth: true,
+          encode: { itemName: "product", value: "2017" }
         }
       ]
+    });
+
+    myChart.showLoading();
+
+    const chartRender = () => {
+      myChart.hideLoading();
+      myChart.setOption({
+        dataset: {
+          dimensions: ["product", "2015", "2016", "2017"],
+          source: [
+            [
+              "衬衫",
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100
+            ],
+            [
+              "羊毛衫",
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100
+            ],
+            [
+              "雪纺衫",
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100
+            ],
+            [
+              "裤子",
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100
+            ],
+            [
+              "高跟鞋",
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100
+            ],
+            [
+              "袜子",
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100
+            ]
+          ]
+        }
+      });
     };
 
-    myChart.setOption(option);
+    setInterval(() => {
+      chartRender();
+    }, 500);
   }
 
   render() {
